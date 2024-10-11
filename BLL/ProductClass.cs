@@ -99,5 +99,12 @@ namespace BLL
 
             return connector.NonQueryFunction(updateQuery);
         }
+
+        public DataSet GetFirstNineProducts()
+        {
+            string query = "SELECT TOP 9 ProductName, ProductPrice,ProductImage FROM ProductTable";
+            return connector.DataSetFunction(query);
+        }
+
     }
 }

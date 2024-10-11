@@ -30,8 +30,8 @@
             <!-- header section strats -->
             <header class="header_section">
                 <nav class="navbar navbar-expand-lg custom_nav-container ">
-                    <a class="navbar-brand" href="LandingPage.aspx">
-                        <span>ESHOP
+                    <a class="navbar-brand">
+                        <span>E GIFT SHOP
                         </span>
                     </a>
 
@@ -41,14 +41,7 @@
                             <li class="nav-item active">
                                 <a class="nav-link" href="LandingPage.aspx">Home <span class="sr-only">(current)</span></a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="">Shop
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="">Contact</a>
-                            </li>
+                           
                         </ul>
                         <div class="user_option">
                             <a href="LoginPage.aspx">
@@ -56,9 +49,7 @@
                                 <span>Login
                                 </span>
                             </a>
-                            <a href="CartPage.aspx">
-                                <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-                            </a>
+                           
 
                         </div>
                     </div>
@@ -82,18 +73,14 @@
                             <h6>ABOUT US
                             </h6>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,
+                            E GIFT SHOP is an e-commerce platform for sellers and buyers to trade gift items.   
                             </p>
                         </div>
                         <div class="col-md-6 col-lg-3">
                             
                         </div>
                         <div class="col-md-6 col-lg-3">
-                            <h6>NEED HELP
-                            </h6>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,
-                            </p>
+                           
                         </div>
                         <div class="col-md-6 col-lg-3">
                             <h6>CONTACT US

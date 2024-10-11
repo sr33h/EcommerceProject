@@ -88,7 +88,15 @@ namespace BLL
             return productsDataset;
         }
 
-       
+       public void UpdateProductStock(int orderid)
+        {
+            string getQuantity = "SELECT Quantity FROM Orders WHERE OrderID=" + orderid;
+            string getProductID = "SELECT ProductID FROM Orders WHERE OrderID=" + orderid;
+            string quantity = connector.ScalarFunction(getQuantity);
+            string productid = connector.ScalarFunction(getProductID);
+            string query = $"UPDATE InventoryTable SET Stock = Stock-{quantity} WHERE ProductID=" + productid;
+            connector.NonQueryFunction(query);
+        }
 
     }
 }

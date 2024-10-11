@@ -34,6 +34,8 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,7 +47,13 @@
     <Compile Include="Card.cs" />
     <Compile Include="CartClass.cs" />
     <Compile Include="CategoryClass.cs" />
-    <Compile Include="OrderClassBLL.cs" />
+    <Compile Include="Connected Services\BankAccountService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="FeedbackClass.cs" />
+    <Compile Include="OrderClass.cs" />
     <Compile Include="ProductClass.cs" />
     <Compile Include="SellerDetails.cs" />
     <Compile Include="SellerInventory.cs" />
@@ -58,6 +66,43 @@
       <Project>{e4fe6720-882b-4d54-a3bc-f185b5916d83}</Project>
       <Name>DAL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Connected Services\BankAccountService\BLL.BankAccountService.CompositeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\BankAccountService\Service.wsdl" />
+    <None Include="Connected Services\BankAccountService\Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\BankAccountService\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\BankAccountService\Service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\BankAccountService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\BankAccountService\Service.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\BankAccountService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\BankAccountService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\BankAccountService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

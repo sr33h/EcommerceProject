@@ -44,6 +44,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -74,8 +76,11 @@
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\responsive.css" />
     <Content Include="css\style.css" />
+    <Content Include="CustomerFeedbackPage.aspx" />
+    <Content Include="CustomerOrdersPage.aspx" />
     <Content Include="EditCategoryPage.aspx" />
     <Content Include="EditProductPage.aspx" />
+    <Content Include="images\payment-success-icon.png" />
     <Content Include="ManageCategoryPage.aspx" />
     <Content Include="images\agency-img.jpg" />
     <Content Include="images\favicon.png" />
@@ -104,12 +109,17 @@
     <Content Include="CustomerLandingPage.aspx" />
     <Content Include="LoginPage.aspx" />
     <Content Include="ManageProductsPage.aspx" />
-    <Content Include="PleaseWaitPage.aspx" />
+    <Content Include="PaymentSuccess.aspx" />
     <Content Include="ProductViewPage.aspx" />
     <Content Include="RegisterPage.aspx" />
+    <Content Include="SellerFeedbackPage.aspx" />
     <Content Include="SellerInventoryPage.aspx" />
     <Content Include="SellerLandingPage.aspx" />
+    <Content Include="SellerOrdersPage.aspx" />
+    <Content Include="SellerOrderStatusUpdate.aspx" />
+    <Content Include="SendFeedbackPage.aspx" />
     <Content Include="ViewCartPage.aspx" />
+    <Content Include="ViewFeedbackPage.aspx" />
     <Content Include="ViewOrderSummary.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -141,6 +151,20 @@
     </Compile>
     <Compile Include="CategoryProductsPage.aspx.designer.cs">
       <DependentUpon>CategoryProductsPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerFeedbackPage.aspx.cs">
+      <DependentUpon>CustomerFeedbackPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerFeedbackPage.aspx.designer.cs">
+      <DependentUpon>CustomerFeedbackPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerOrdersPage.aspx.cs">
+      <DependentUpon>CustomerOrdersPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerOrdersPage.aspx.designer.cs">
+      <DependentUpon>CustomerOrdersPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditCategoryPage.aspx.cs">
       <DependentUpon>EditCategoryPage.aspx</DependentUpon>
@@ -191,12 +215,12 @@
     <Compile Include="ManageProductsPage.aspx.designer.cs">
       <DependentUpon>ManageProductsPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PleaseWaitPage.aspx.cs">
-      <DependentUpon>PleaseWaitPage.aspx</DependentUpon>
+    <Compile Include="PaymentSuccess.aspx.cs">
+      <DependentUpon>PaymentSuccess.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PleaseWaitPage.aspx.designer.cs">
-      <DependentUpon>PleaseWaitPage.aspx</DependentUpon>
+    <Compile Include="PaymentSuccess.aspx.designer.cs">
+      <DependentUpon>PaymentSuccess.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductViewPage.aspx.cs">
       <DependentUpon>ProductViewPage.aspx</DependentUpon>
@@ -220,6 +244,13 @@
     <Compile Include="Seller.Master.designer.cs">
       <DependentUpon>Seller.Master</DependentUpon>
     </Compile>
+    <Compile Include="SellerFeedbackPage.aspx.cs">
+      <DependentUpon>SellerFeedbackPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SellerFeedbackPage.aspx.designer.cs">
+      <DependentUpon>SellerFeedbackPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SellerInventoryPage.aspx.cs">
       <DependentUpon>SellerInventoryPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -233,6 +264,27 @@
     </Compile>
     <Compile Include="SellerLandingPage.aspx.designer.cs">
       <DependentUpon>SellerLandingPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SellerOrdersPage.aspx.cs">
+      <DependentUpon>SellerOrdersPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SellerOrdersPage.aspx.designer.cs">
+      <DependentUpon>SellerOrdersPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SellerOrderStatusUpdate.aspx.cs">
+      <DependentUpon>SellerOrderStatusUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SellerOrderStatusUpdate.aspx.designer.cs">
+      <DependentUpon>SellerOrderStatusUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SendFeedbackPage.aspx.cs">
+      <DependentUpon>SendFeedbackPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SendFeedbackPage.aspx.designer.cs">
+      <DependentUpon>SendFeedbackPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
@@ -255,6 +307,13 @@
     <Compile Include="ViewCartPage.aspx.designer.cs">
       <DependentUpon>ViewCartPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ViewFeedbackPage.aspx.cs">
+      <DependentUpon>ViewFeedbackPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewFeedbackPage.aspx.designer.cs">
+      <DependentUpon>ViewFeedbackPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewOrderSummary.aspx.cs">
       <DependentUpon>ViewOrderSummary.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -275,6 +334,7 @@
     <Content Include="Site1.Master" />
     <Content Include="Site2.Master" />
     <Content Include="Seller.Master" />
+    <Content Include="Properties\DataSources\BLL.BankAccountService.CompositeType.datasource" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -291,6 +351,9 @@
   <ItemGroup>
     <Folder Include="categoryImages\" />
     <Folder Include="productImages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

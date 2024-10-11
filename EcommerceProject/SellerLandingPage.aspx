@@ -102,12 +102,14 @@
               </svg>
             </div>
             <div class="detail-box">
+                <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/SellerOrdersPage.aspx">
               <h5>
                 Orders
               </h5>
               <p>
-                View all the orders you received and their statuses.
+                View and manage all the orders received.
               </p>
+                </asp:HyperLink>
             </div>
           </div>
         </div>
@@ -241,12 +243,14 @@
               </svg>
             </div>
             <div class="detail-box">
-              <h5>
-                Bills
+                <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/SellerFeedbackPage.aspx">
+                    <h5>
+                Feedbacks
               </h5>
               <p>
-                View your payments received.
+                View feedback from customers for the products you delivered.
               </p>
+                </asp:HyperLink>              
             </div>
           </div>
         </div>

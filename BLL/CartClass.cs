@@ -88,6 +88,10 @@ namespace BLL
 
         public void UpdateProductQuantity(int productid,string newquantity,int customerid)
         {
+            if (newquantity == "0")
+            {
+                RemoveFromCart(productid,customerid);
+            }
             string query = $"UPDATE Carts SET Quantity={newquantity} " +
                 $"WHERE ProductID={productid} AND CustomerID={customerid}";
 
@@ -97,6 +101,12 @@ namespace BLL
         public void RemoveFromCart(int productid,int customerid)
         {
             string query = $"DELETE FROM Carts WHERE ProductID={productid} AND CustomerID={customerid}";
+            connector.NonQueryFunction(query);
+        }
+
+        public void ClearCart(int customerid)
+        {
+            string query = $"DELETE FROM Carts WHERE CustomerID={customerid}";
             connector.NonQueryFunction(query);
         }
     }

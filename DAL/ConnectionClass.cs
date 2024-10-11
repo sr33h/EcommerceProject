@@ -1,5 +1,4 @@
 ﻿using System.Data;
-using System.Data.Linq;
 using System.Data.SqlClient;
 
 namespace DAL
@@ -8,15 +7,12 @@ namespace DAL
         {
             SqlConnection connection;
             SqlCommand command;
-        DataContext dataContext;
+        
 
         public ConnectionClass()
             {
                 connection = new SqlConnection(@"server=GOKU\SQLEXPRESS;database=ECOMMERCEDB;
 Integrated Security=true;");
-
-            dataContext = new DataContext(@"data source=GOKU\SQLEXPRESS;initial catalog=ECOMMERCEDB;
-integrated security=true;");
         }
 
             public int NonQueryFunction(string sqlquery)
@@ -41,7 +37,7 @@ integrated security=true;");
                 command = new SqlCommand(sqlquery, connection);
                 connection.Open();
             string s = "";
-            if (command.ExecuteScalar().ToString() == null) 
+            if (command.ExecuteScalar() == null) 
             {
                 connection.Close();
                 return s;
@@ -129,17 +125,6 @@ integrated security=true;");
             int i = cmd.ExecuteNonQuery();
             connection.Close();
            
-        }
-
-
-        public Table<Orders> GetOrderTable()
-        {
-            return dataContext.GetTable<Orders>();
-        }
-
-        public void SubmitOrder()
-        {
-            dataContext.SubmitChanges();
         }
     }
 }

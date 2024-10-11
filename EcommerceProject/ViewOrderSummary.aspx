@@ -143,7 +143,7 @@
                         <tr>
                             <td>&nbsp;</td>
                             <td class="text-center" colspan="2">
-                                <asp:Label ID="Label5" runat="server" Font-Bold="True" Font-Size="X-Small" ForeColor="Red" Text="Sorry. The provided card details are invalid. Please enter a valid card number." Visible="False"></asp:Label>
+                                <asp:Label ID="Label5" runat="server" Font-Bold="True" Font-Size="X-Small" ForeColor="Red"></asp:Label>
                             </td>
                             <td>&nbsp;</td>
                         </tr>

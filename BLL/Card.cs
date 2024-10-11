@@ -37,15 +37,61 @@ namespace BLL
 
         public void SaveCard(string cardNumber, string cvv, int customerid) 
         {
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "SP_SaveCard";
+            if (!IfCardSaved(customerid))
+            {
 
-            cmd.Parameters.AddWithValue("@cardnumber", cardNumber);
-            cmd.Parameters.AddWithValue("@cvv", cvv);
-            cmd.Parameters.AddWithValue("@customerid", customerid);
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "SP_SaveCard";
 
-            connector.NonQueryFunctionUsingSP(cmd);
+                cmd.Parameters.AddWithValue("@cardnumber", cardNumber);
+                cmd.Parameters.AddWithValue("@cvv", cvv);
+                cmd.Parameters.AddWithValue("@customerid", customerid);
+
+                connector.NonQueryFunctionUsingSP(cmd);
+            }
+            else
+            {
+                string updateCard = $"UPDATE SavedCards SET CardNumber={cardNumber},CVV={cvv} WHERE" +
+                    $" CustomerID=" + customerid;
+
+                connector.NonQueryFunction(updateCard);
+            }
+        }
+
+        public bool IfCardSaved(int customerid)
+        {
+            string query = "SELECT COUNT(CardNumber) FROM SavedCards WHERE CustomerID=" + customerid;
+            string count = connector.ScalarFunction(query);
+            if (count == "1")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public SqlDataReader GetSavedCard(int customerid)
+        {
+            string query = $"SELECT * FROM SavedCards WHERE CustomerID="+customerid;
+            return connector.ReaderFunction(query);
+        }
+
+        public bool MakePayment(string cardnumber,int grandtotal)
+        {
+            BankAccountService.ServiceClient obj = new BankAccountService.ServiceClient();
+            string balance = obj.GetBalance(cardnumber);
+            if(Convert.ToInt32(balance) < grandtotal)
+            {
+                return false;
+            }
+            else
+            {
+                return obj.DeductAmount(cardnumber,grandtotal);               
+            }
+
         }
     }
 }
